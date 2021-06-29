@@ -14,12 +14,7 @@ def pico_single():
 	from time import sleep
 	
 	import time
-	import datetime
-	
-	#from pylab import *
-	
-	filename = sys.argv[1];
-	
+	import datetime	
 	# Create chandle and status ready for use
 	chandle = ctypes.c_int16()
 	status = {}
@@ -37,10 +32,6 @@ def pico_single():
 	# therocouples types and int8 equivalent
 	# B=66 , E=69 , J=74 , K=75 , N=78 , R=82 , S=83 , T=84 , ' '=32 , X=88 
 	len=8
-	d = datetime.datetime.today()
-	start = time.time()
-	print("start time: ",d)
-	elapsed_time=0
 	temps=[0]*8
 	y=[0]*10
 	#while elapsed_time < 420.1:
@@ -74,6 +65,6 @@ def pico_single():
 	#    plot(x, y)
 	#    pause(0.05)
 	status["close_unit"] = tc08.usb_tc08_close_unit(chandle)
-	ssert_pico2000_ok(status["close_unit"])
+	assert_pico2000_ok(status["close_unit"])
 	# display status returns
-    return temps
+	return temps
