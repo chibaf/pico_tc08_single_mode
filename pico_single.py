@@ -51,19 +51,8 @@ def pico_single():
 	  status["get_single"] = tc08.usb_tc08_get_single(chandle,ctypes.byref(temp), ctypes.byref(overflow), units)
 	  assert_pico2000_ok(status["get_single"])
 	
-	# print data
-	#    print("Cold Junction ", temp[0]," Channel ",str(i), temp[i])
 	  temps[i-1]=temp[i]
-	# close unit
-	#elapsed_time = time.time() - start
-	#  print(temps[0],temps[1],temps[2],temps[3],temps[4],temps[5],temps[6],temps[7])
-	#    x=range(0, 10, 1)
-	#    y.insert(0, temps[1])
-	#    y.pop(10)
-	#    clf()
-	#    ylim(0, 1000)
-	#    plot(x, y)
-	#    pause(0.05)
+
 	status["close_unit"] = tc08.usb_tc08_close_unit(chandle)
 	assert_pico2000_ok(status["close_unit"])
 	# display status returns
